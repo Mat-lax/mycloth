@@ -1,18 +1,23 @@
 
-//== Font
+//== Typography
 
-$font-family:           "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family:           "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-size:             16px;
 $font-height:           1.5;
 
-//== Color
+//== Brand palette
 
-// Normal mode
-$color-foreground:      #202020;
-$color-background:      #ECECEC;
-$color-link:            #2020E0;
+$color-navy:            #0f172a;
+$color-gold:            #c9a84c;
+$color-neutral-50:      #f8fafc;
+$color-neutral-100:     #f1f5f9;
+$color-neutral-600:     #475569;
+$color-neutral-900:     #0f172a;
 
-// Dark mode
-$color-foreground-dark: invert($color-foreground);
-$color-background-dark: invert($color-background);
-$color-link-dark:       invert($color-link);
+$color-foreground:      $color-neutral-900;
+$color-background:      $color-neutral-50;
+$color-link:            $color-gold;
+
+$color-foreground-dark: $color-neutral-50;
+$color-background-dark: $color-navy;
+$color-link-dark: $color-gold;

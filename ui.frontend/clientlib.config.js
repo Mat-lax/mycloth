@@ -33,8 +33,8 @@ const CLIENTLIB_DIR = path.join(
 const libsBaseConfig = {
   allowProxy: true,
   serializationFormat: 'xml',
-  cssProcessor: ['default:none', 'min:none'],
-  jsProcessor: ['default:none', 'min:none']
+  cssProcessor: ['default:none', 'min:gcc'],
+  jsProcessor: ['default:none', 'min:gcc']
 };
 
 // Config for `aem-clientlib-generator`
