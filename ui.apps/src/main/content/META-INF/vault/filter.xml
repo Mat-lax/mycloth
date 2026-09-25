@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/mycloth/clientlibs"/>
+    <filter root="/apps/mycloth/components"/>
+    <filter root="/apps/mycloth/i18n"/>
+</workspaceFilter>
