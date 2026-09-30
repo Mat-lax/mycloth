@@ -1,32 +1,38 @@
-<div class="cmp-hero">
+<div class="cmp-hero-component">
     <section class="cmp-hero">
-        <div class="cmp-hero__inner">
-            <div class="cmp-hero__content">
-                <p class="cmp-hero__eyecatcher">${properties.eyecatcher}</p>
-                <h1 class="cmp-hero__title">${properties.headline}</h1>
-                <p class="cmp-hero__subtitle">${properties.subheadline}</p>
-            </div>
-            <div class="cmp-hero__media">
-                <img
-                    class="cmp-hero__image"
-                    src="${properties.heroImage @ context='uri'}"
-                    alt="${properties.heroImageAlt}">
-        </div>
-        </div>
+        <sly  data-sly-use.heroModel="com.mycloth.core.models.HeroModel">
+            <div class="cmp-hero__inner">
+                    <div class="cmp-hero__content">
+                        <p class="cmp-hero__eyecatcher">${heroModel.eyecatcher}</p>
+                        <h1 class="cmp-hero__title">${heroModel.headline}</h1>
+                        <p class="cmp-hero__subtitle">${heroModel.subheadline}</p>
+                    </div>
+                    <div class="cmp-hero__media">
+                        <img
+                            class="cmp-hero__image"
+                            src="${heroModel.heroImage @ context='uri'}"
+                            alt="${heroModel.heroImageAlt}">
+                </div>
+                </div>
+        </sly>
     </section>
 <section class="cmp-hero__stats">
     <div class="cmp-hero__stats-inner">
         <div class="cmp-hero__stat">
-            <strong>12.4k+</strong>
-            <span>Accounts</span>
+            <strong>12,400+</strong>
+            <span>Verified Trade Accounts</span>
         </div>
         <div class="cmp-hero__stat">
             <strong>1,200+</strong>
-            <span>SKUs</span>
+            <span>SKUs in Catalogue</span>
         </div>
         <div class="cmp-hero__stat">
             <strong>₹84 Cr+</strong>
-            <span>GMV</span>
+            <span>GMV Facilitated</span>
+        </div>
+        <div class="cmp-hero__stat">
+            <strong>98.2%</strong>
+            <span>On-time Dispatch Rate</span>
         </div>
     </div>
 </section>
