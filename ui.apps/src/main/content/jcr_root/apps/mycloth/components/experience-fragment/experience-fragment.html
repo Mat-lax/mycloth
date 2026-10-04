@@ -1,0 +1,28 @@
+<sly data-sly-test="${wcmmode.edit}">
+    <p data-emptytext="${component.title}">${component.title}</p>
+</sly>
+
+<sly data-sly-use.clientlibs="${'com.adobe.cq.wcm.core.components.models.ClientLibraries' @
+  categories='mycloth.components.experience-fragment',
+  defer=true,
+  crossorigin='anonymous'}">    
+  ${clientlibs.jsIncludes @ context="unsafe"}
+</sly>
+
+<sly data-sly-use.navigation="com.mycloth.core.models.MainNavigationImp"></sly>
+
+<sly data-sly-template.navItems="${@ items}">
+    <ul data-sly-list.item="${items}">
+        <li class="${item.children.size > 0 ? 'has-children' : ''}">
+            <a href="${item.path @ extension='html'}">${item.title}</a>
+            <sly data-sly-test="${item.children.size > 0}">
+                <sly data-sly-call="${navItems @ items=item.children}"></sly>
+            </sly>
+        </li>
+    </ul>
+</sly>
+
+<nav aria-label="Main navigation">
+    <sly data-sly-call="${navItems @ items=navigation.items}"></sly>
+</nav>
+
