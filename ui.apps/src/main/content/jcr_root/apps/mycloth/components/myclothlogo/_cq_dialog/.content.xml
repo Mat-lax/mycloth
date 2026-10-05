@@ -16,16 +16,18 @@
                         jcr:title="Content"
                         sling:resourceType="granite/ui/components/coral/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
-                            <logo
+                            <text
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldLabel="Logo"
-                                name="./logo"/>
-                            <logopath
+                                fieldLabel="Logo Text"
+                                name="./text"
+                                value="MyCloth"/>
+                            <link
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Logo Path"
-                                name="./logoPath"
+                                fieldLabel="Home Link"
+                                name="./link"
+                                value="/content/mycloth/us/en"
                                 rootPath="/content/mycloth"/>
                         </items>
                     </properties>

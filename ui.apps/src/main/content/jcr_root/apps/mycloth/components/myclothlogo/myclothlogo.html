@@ -1,3 +1,11 @@
-<div class = "cmp-myclothlogo">
-    <img src="${properties.logoPath}" alt="${properties.logo}" />
-</div>
+<sly data-sly-use.model="com.mycloth.core.models.MyClothLogoModel">
+    <a class="cmp-myclothlogo__link"
+       href="${model.link @ context='uri'}"
+       aria-label="${model.text} home">
+        <span class="cmp-myclothlogo__mark" aria-hidden="true">M</span>
+        <span class="cmp-myclothlogo__wordmark">
+            <span class="cmp-myclothlogo__name">${model.text}</span>
+            <span class="cmp-myclothlogo__trade">TRADE</span>
+        </span>
+    </a>
+</sly>
