@@ -1,0 +1,79 @@
+.cmp-myclothlogo-mark {
+    align-items: center;
+    background: #142044;
+    color: #fff;
+    display: inline-flex;
+    flex: 0 0 56px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    height: 45px;
+    justify-content: center;
+    width: 35px;
+    padding: 5px 5px 5px;
+}
+
+.cmp-myclothlogo-link {
+    align-items: center;
+    color: #142044;
+    display: inline-flex;
+    gap: 10px;
+    padding: 5px 5px 5px;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.cmp-myclothlogo-link:focus-visible {
+    outline: 2px solid #142044;
+    outline-offset: 4px;
+}
+
+.cmp-myclothlogo-wordmark {
+    align-items: baseline;
+    display: inline-flex;
+    gap: 10px;
+    white-space: nowrap;
+    padding: 8px 8px 8px 8px;
+    
+}
+
+.cmp-myclothlogo-name {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -1.0px;
+    line-height: 1;
+}
+
+.cmp-myclothlogo-trade {
+    color: #71809a;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 480px) {
+    .cmp-myclothlogo-link {
+        gap: 10px;
+    }
+
+    .cmp-myclothlogo-mark {
+        flex-basis: 44px;
+        height: 44px;
+        width: 44px;
+    }
+
+    .cmp-myclothlogo-wordmark {
+        gap: 8px;
+    }
+
+    .cmp-myclothlogo-name {
+        font-size: 28px;
+    }
+
+    .cmp-myclothlogo-trade {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}
