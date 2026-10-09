@@ -55,7 +55,7 @@
 
 @media (max-width: 480px) {
     .cmp-myclothlogo-link {
-        gap: 10px;
+        gap: 6px;
     }
 
     .cmp-myclothlogo-mark {
@@ -65,15 +65,15 @@
     }
 
     .cmp-myclothlogo-wordmark {
-        gap: 8px;
+        gap: 5px;
     }
 
     .cmp-myclothlogo-name {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .cmp-myclothlogo-trade {
-        font-size: 12px;
-        letter-spacing: 2px;
+        font-size: 9px;
+        letter-spacing: 1px;
     }
 }

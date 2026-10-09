@@ -4,7 +4,6 @@
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
   <sly data-sly-call="${clientlib.css @ categories='mycloth.components.experience-fragment'}"/>
-  <sly data-sly-call="${clientlib.js @ categories='mycloth.components.experience-fragment'}"/>
 </sly>
 
 <sly data-sly-use.navigation="com.mycloth.core.models.MainNavigationImp"></sly>
@@ -21,5 +20,14 @@
 </sly>
 
 <nav class="cmp-nav" aria-label="Main navigation">
+    <button class="cmp-nav__toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </button>
     <sly data-sly-call="${navItems @ items=navigation.items}"></sly>
 </nav>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientlib.js @ categories='mycloth.components.experience-fragment'}"/>
+</sly>
