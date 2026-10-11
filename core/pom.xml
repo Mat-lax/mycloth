@@ -43,7 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: com.day.cq.wcm.api;version="[1.32,2)",javax.annotation;version=0.0.0,*
+Import-Package: com.day.cq.wcm.api;version="[1.32,2)",javax.annotation;version=0.0.0,!sun.misc,*
+-conditionalpackage: com.google.gson.*,com.google.errorprone.annotations.*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -89,6 +90,16 @@ Import-Package: com.day.cq.wcm.api;version="[1.32,2)",javax.annotation;version=0
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.errorprone</groupId>
+            <artifactId>error_prone_annotations</artifactId>
+            <version>2.18.0</version>
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
