@@ -1,0 +1,30 @@
+<sly data-sly-test="${wcmmode.edit}">
+    <p data-empytext="${component.title}">${component.title}</p>
+</sly>
+
+<sly data-sly-use.legalPolicyModel="com.mycloth.core.models.LegalPolicyModel">
+    <div class="legal-policy">
+        <section data-sly-test="${legalPolicyModel.privacyTitle || legalPolicyModel.privacyDescription || legalPolicyModel.privacyRolloutDate || legalPolicyModel.privacySections}">
+            <h2>${legalPolicyModel.privacyTitle}</h2>
+            <p>${legalPolicyModel.privacyDescription @context='html'}</p>
+            <p>${legalPolicyModel.privacyRolloutDate}</p>
+            <div data-sly-list.section="${legalPolicyModel.privacySections}">
+                <h3 data-sly-test="${section.subtitle}">${section.subtitle}</h3>
+                <div data-sly-test="${section.text}" class="legal-policy__text">
+                    ${section.text @context='html'}
+                </div>
+            </div>
+        </section>
+        <section data-sly-test="${legalPolicyModel.legalTitle || legalPolicyModel.legalDescription || legalPolicyModel.legalRolloutDate || legalPolicyModel.legalSections}">
+            <h2>${legalPolicyModel.legalTitle}</h2>
+            <p>${legalPolicyModel.legalDescription @context='html'}</p>
+            <p>${legalPolicyModel.legalRolloutDate}</p>
+            <div data-sly-list.section="${legalPolicyModel.legalSections}">
+                <h3 data-sly-test="${section.subtitle}">${section.subtitle}</h3>
+                <div data-sly-test="${section.text}" class="legal-policy__text">
+                    ${section.text @context='html'}
+                </div>
+            </div>
+        </section>
+    </div>
+</sly>

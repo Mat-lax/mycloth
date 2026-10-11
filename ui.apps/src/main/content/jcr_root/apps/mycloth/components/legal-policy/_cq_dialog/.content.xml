@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Legal Policy"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <privacy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Privacy"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <privacyCfLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Content Fragment"
+                                fieldDescription="Select the Privacy Content Fragment."
+                                name="./privacyCfLink"
+                                rootPath="/content/dam"/>
+                            <privacySections
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Privacy Sections">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./privacySections">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <subtitle
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Sub-title"
+                                            name="subtitle"/>
+                                        <anchorId
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Anchor ID"
+                                            name="anchorId"/>
+                                        <text
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            name="text"
+                                            useFixedInlineToolbar="{Boolean}true">
+
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <format
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="bold,italic,underline"/>
+                                                <links
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="modifylink,unlink"/>
+                                                <lists
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                            </rtePlugins>
+
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,format#underline,links#modifylink,links#unlink]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </text>
+                                    </items>
+                                </field>
+                            </privacySections>
+                        </items>
+                    </privacy>
+                    <legal
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Legal"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <legalCfLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Content Fragment"
+                                fieldDescription="Select the Legal Content Fragment."
+                                name="./legalCfLink"
+                                rootPath="/content/dam"/>
+                            <legalSections
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Legal Sections">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./legalSections">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <subtitle
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Sub-title"
+                                            name="subtitle"/>
+                                        <anchorId
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Anchor ID"
+                                            name="anchorId"/>
+                                        <text
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            name="text"
+                                            useFixedInlineToolbar="{Boolean}true">
+
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <format
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="bold,italic,underline"/>
+                                                <links
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="modifylink,unlink"/>
+                                                <lists
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                            </rtePlugins>
+
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,format#underline,links#modifylink,links#unlink]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </text>
+                                    </items>
+                                </field>
+                            </legalSections>
+                        </items>
+                    </legal>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
