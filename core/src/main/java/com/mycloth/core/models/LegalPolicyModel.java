@@ -115,23 +115,39 @@ public class LegalPolicyModel {
         return element.getContent();
     }
 
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMMM d, uuuu");
+    private static final DateTimeFormatter DATE_FORMATTER =
+        DateTimeFormatter.ofPattern("MMMM d, uuuu", java.util.Locale.ENGLISH);
 
     private String formatRolloutDate(String rolloutDate) {
         if (rolloutDate == null || rolloutDate.isBlank()) {
             return null;
         }
+
+        String value = rolloutDate.trim();
+
         try {
             LocalDate date;
+
             try {
-                date = DateTimeFormatter.ISO_DATE_TIME.parse(rolloutDate, LocalDate::from);
+                date = LocalDate.parse(
+                        value,
+                        DateTimeFormatter.ISO_LOCAL_DATE
+                );
             } catch (DateTimeParseException e) {
-                date = LocalDate.parse(rolloutDate, DateTimeFormatter.ISO_LOCAL_DATE);
+                date = LocalDate.parse(
+                        value,
+                        DateTimeFormatter.ISO_DATE_TIME
+                );
             }
+
             return DATE_FORMATTER.format(date);
+
         } catch (DateTimeParseException e) {
-            LOG.warn("Could not parse rollout date '{}'; rendering the original value.", rolloutDate, e);
-            return rolloutDate;
+            LOG.warn(
+                    "Invalid rollout date '{}'; returning original value.",
+                    value
+            );
+            return value;
         }
     }
 
