@@ -1,0 +1,111 @@
+
+.mycloth-menu_nav {
+    display: flex;
+    height: calc(var(--spacing) * 16);
+    max-width: var(--container-7xl);
+    align-items: center;
+    justify-content: center; /* Changed from space-between to center */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    width: 100%;
+}
+
+/* 2. Navigation List */
+/* 2. Reset and style the navigation list */
+.mycloth-menu_nav-ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* 3. Individual List Item */
+.cmp-mycloth-nav__item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 35px;  
+    position: relative /* Adjust this value to your preferred spacing */
+}
+
+/* 4. Navigation Link (Removes underlines and sets custom color) */
+.cmp-mycloth-nav__link {
+    color: #333333 !important;         /* Explicit color with !important to override defaults */
+    text-decoration: none !important;  /* Removes underlines */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+/* Hover state for links */
+.cmp-mycloth-nav__link:hover {
+    color: #2563eb !important;         /* Theme accent hover color */
+    text-decoration: none !important;
+}
+
+/* 5. Title Span Styling */
+.cmp-mycloth-nav__title {
+    display: inline-block;
+   gap: calc(var(--spacing) * 7); 
+}
+
+.cmp-mycloth-nav__dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+/* Show dropdown on hover or keyboard focus */
+.cmp-mycloth-nav__item:hover > .cmp-mycloth-nav__dropdown,
+.cmp-mycloth-nav__item:focus-within > .cmp-mycloth-nav__dropdown {
+    display: block;
+}
+
+/* Dropdown links */
+.cmp-mycloth-nav__dropdown-link {
+    display: block;
+    padding: 10px 16px;
+    color: #222;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cmp-mycloth-nav__dropdown-link:hover,
+.cmp-mycloth-nav__dropdown-link:focus {
+    background-color: #f2f2f2;
+}
+
+/* 4. Navigation Link (Removes underlines and sets custom color) */
+.cmp-mycloth-nav__link {
+    color: #333333 !important;         /* Explicit color with !important to override defaults */
+    text-decoration: none !important;  /* Removes underlines */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+/* Hover state for links */
+.cmp-mycloth-nav__link:hover {
+    color: #2563eb !important;         /* Theme accent hover color */
+    text-decoration: none !important;
+}
+
+/* 5. Title Span Styling */
+.cmp-mycloth-nav__title {
+    display: inline-block;
+}

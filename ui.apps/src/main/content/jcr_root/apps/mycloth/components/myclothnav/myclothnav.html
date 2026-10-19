@@ -1,0 +1,39 @@
+
+<sly data-sly-test="${wcmmode.edit}">
+    <p data-emptytext="${component.title}">
+        ${component.title}
+    </p>
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='mycloth.components.myclothnav'}">
+</sly>
+
+<sly data-sly-use.nav="com.mycloth.core.models.MyClothNavModel">
+
+    <nav class="mycloth-menu_nav" aria-label="Main navigation">
+        <ul class="mycloth-menulist">
+
+            <li class="cmp-mycloth-nav__item"
+                data-sly-repeat.item="${nav.navigationItems}">
+
+                <a class="cmp-mycloth-nav__link"
+                   href="${item.pagePath}">
+                    <span class="cmp-mycloth-nav__title">
+                        ${item.title}
+                    </span>
+                </a>
+                <ul class="cmp-mycloth-nav__dropdown"
+                    data-sly-test="${item.childPages}">
+                    <li class="cmp-mycloth-nav__dropdown-item"
+                        data-sly-repeat.childPage="${item.childPages}">
+                        <a class="cmp-mycloth-nav__dropdown-link"
+                           href="${childPage.path}.html">
+                            ${childPage.title}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</sly>
