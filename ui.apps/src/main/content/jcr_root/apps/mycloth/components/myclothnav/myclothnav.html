@@ -1,6 +1,5 @@
-
 <sly data-sly-test="${wcmmode.edit}">
-    <p data-emptytext="${component.title}">
+    <p class="cq-placeholder" data-emptytext="${component.title}">
         ${component.title}
     </p>
 </sly>
@@ -10,26 +9,21 @@
 </sly>
 
 <sly data-sly-use.nav="com.mycloth.core.models.MyClothNavModel">
-
     <nav class="mycloth-menu_nav" aria-label="Main navigation">
         <ul class="mycloth-menulist">
-
             <li class="cmp-mycloth-nav__item"
                 data-sly-repeat.item="${nav.navigationItems}">
 
-                <a class="cmp-mycloth-nav__link"
-                   href="${item.pagePath}">
-                    <span class="cmp-mycloth-nav__title">
-                        ${item.title}
-                    </span>
+                <a class="cmp-mycloth-nav__link" href="${item.url}">
+                    <span class="cmp-mycloth-nav__title">${item.title}</span>
                 </a>
+
                 <ul class="cmp-mycloth-nav__dropdown"
-                    data-sly-test="${item.childPages}">
+                    data-sly-test="${item.children}">
                     <li class="cmp-mycloth-nav__dropdown-item"
-                        data-sly-repeat.childPage="${item.childPages}">
-                        <a class="cmp-mycloth-nav__dropdown-link"
-                           href="${childPage.path}.html">
-                            ${childPage.title}
+                        data-sly-repeat.child="${item.children}">
+                        <a class="cmp-mycloth-nav__dropdown-link" href="${child.url}">
+                            ${child.title}
                         </a>
                     </li>
                 </ul>

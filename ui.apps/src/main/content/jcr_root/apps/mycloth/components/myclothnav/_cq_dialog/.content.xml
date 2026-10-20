@@ -60,14 +60,13 @@
                                             rootPath="/content/mycloth"
                                             required="{Boolean}true"/>
 
-                                        <childPageDepth
+                                        <showChildPages
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                                            fieldLabel="Child Pages Depth"
-                                            fieldDescription="TO get the child pages"
-                                            name="./childPagesDepth"
-                                            min="{Long}1"
-                                            value="1"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                            text="Show child pages in dropdown"
+                                            name="./showChildPages"
+                                            value="true"
+                                            uncheckedValue="false"/>
 
                                     </items>
                                 </field>
