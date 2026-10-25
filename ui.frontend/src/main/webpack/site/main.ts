@@ -1,8 +1,10 @@
-
 // Stylesheets
 import "./main.scss";
 
-// Javascript or Typescript
+// Existing JavaScript and TypeScript
 import "./**/*.js";
 import "./**/*.ts";
-import '../components/**/*.js';
+import "../components/**/*.js";
+
+// React component initialization
+import "../components/react-component/register-react-component";

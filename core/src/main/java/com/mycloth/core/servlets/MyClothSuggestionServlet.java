@@ -110,12 +110,9 @@ public class MyClothSuggestionServlet extends SlingSafeMethodsServlet {
         predicates.put("type", "cq:Page");
         predicates.put("p.limit", "-1");
 
-        Query query = queryBuilder.createQuery(
-                PredicateGroup.create(predicates),
-                session);
-
+        PredicateGroup group = PredicateGroup.create(predicates);
+        Query query = queryBuilder.createQuery(group,session);
         SearchResult searchResult = query.getResult();
-
         ArrayNode items = objectMapper.createArrayNode();
 
         for (Hit hit : searchResult.getHits()) {

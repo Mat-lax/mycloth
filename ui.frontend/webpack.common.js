@@ -10,10 +10,12 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const SOURCE_ROOT = __dirname + '/src/main/webpack';
 
 const resolve = {
-    extensions: ['.js', '.ts'],
-    plugins: [new TSConfigPathsPlugin({
-        configFile: './tsconfig.json'
-    })]
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    plugins: [
+        new TSConfigPathsPlugin({
+            configFile: './tsconfig.json'
+        })
+    ]
 };
 
 module.exports = {
@@ -21,12 +23,17 @@ module.exports = {
     entry: {
         site: SOURCE_ROOT + '/site/main.ts'
     },
-    output: {
-        filename: (chunkData) => {
-            return chunkData.chunk.name === 'dependencies' ? 'clientlib-dependencies/[name].js' : 'clientlib-site/[name].js';
-        },
-        path: path.resolve(__dirname, 'dist')
+
+output: {
+    filename: (chunkData) => {
+        return chunkData.chunk.name === 'dependencies'
+            ? 'clientlib-dependencies/[name].js'
+            : 'clientlib-site/[name].js';
     },
+    chunkFilename: 'clientlib-site/[name].js',
+    path: path.resolve(__dirname, 'dist')
+},
+
     module: {
         rules: [
             {
