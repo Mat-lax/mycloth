@@ -10,16 +10,36 @@
 
 <sly data-sly-use.nav="com.mycloth.core.models.MyClothNavModel">
     <nav class="mycloth-menu_nav" aria-label="Main navigation">
-        <ul class="mycloth-menulist">
+
+        <button class="mycloth-menu__toggle"
+                type="button"
+                aria-controls="mycloth-menulist"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="mycloth-menulist" id="mycloth-menulist">
             <li class="cmp-mycloth-nav__item"
                 data-sly-repeat.item="${nav.navigationItems}">
 
-                <a class="cmp-mycloth-nav__link" href="${item.url}">
-                    <span class="cmp-mycloth-nav__title">${item.title}</span>
-                </a>
+                <div class="cmp-mycloth-nav__row">
+                    <a class="cmp-mycloth-nav__link" href="${item.url}">
+                        <span class="cmp-mycloth-nav__title">${item.title}</span>
+                    </a>
 
-                <ul class="cmp-mycloth-nav__dropdown"
-                    data-sly-test="${item.children}">
+                    <button class="cmp-mycloth-nav__arrow"
+                            type="button"
+                            aria-expanded="false"
+                            aria-label="Expand ${item.title}"
+                            data-sly-test="${item.children}">
+                        <span aria-hidden="true">+</span>
+                    </button>
+                </div>
+
+                <ul class="cmp-mycloth-nav__dropdown" data-sly-test="${item.children}">
                     <li class="cmp-mycloth-nav__dropdown-item"
                         data-sly-repeat.child="${item.children}">
                         <a class="cmp-mycloth-nav__dropdown-link" href="${child.url}">
@@ -30,4 +50,8 @@
             </li>
         </ul>
     </nav>
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.js @ categories='mycloth.components.myclothnav'}">
 </sly>

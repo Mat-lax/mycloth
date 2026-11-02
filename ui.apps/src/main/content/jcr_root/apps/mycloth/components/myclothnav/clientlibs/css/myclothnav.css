@@ -1,38 +1,46 @@
+/* ==========================================================================
+   MyCloth Navigation
+   ========================================================================== */
 
+/* ---------- Base: nav container ---------- */
 .mycloth-menu_nav {
     display: flex;
+    align-items: center;
+    justify-content: center;
     height: calc(var(--spacing) * 16);
     max-width: var(--container-7xl);
-    align-items: center;
-    justify-content: center; /* Changed from space-between to center */
     margin: 0 auto;
     padding: 0 1.5rem;
     width: 100%;
+    box-sizing: border-box;
+    position: relative;
 }
 
-/* 2. Navigation List */
-/* 2. Reset and style the navigation list */
-.mycloth-menu_nav-ul {
+/* ---------- Navigation list ---------- */
+.mycloth-menulist {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-    font-family: sans-serif;
 }
 
-/* 3. Individual List Item */
+/* ---------- List item ---------- */
 .cmp-mycloth-nav__item {
     display: inline-flex;
     align-items: center;
-    margin-right: 35px;  
-    position: relative /* Adjust this value to your preferred spacing */
+    margin-right: 35px;
+    position: relative;
 }
 
-/* 4. Navigation Link (Removes underlines and sets custom color) */
+/* ---------- Row (link + arrow), used on mobile ---------- */
+.cmp-mycloth-nav__row {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ---------- Navigation link ---------- */
 .cmp-mycloth-nav__link {
-    color: #333333 !important;         /* Explicit color with !important to override defaults */
-    text-decoration: none !important;  /* Removes underlines */
+    color: #333333 !important;
+    text-decoration: none !important;
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.2s ease;
@@ -40,19 +48,16 @@
     align-items: center;
 }
 
-
-/* Hover state for links */
 .cmp-mycloth-nav__link:hover {
-    color: #2563eb !important;         /* Theme accent hover color */
+    color: #2563eb !important;
     text-decoration: none !important;
 }
 
-/* 5. Title Span Styling */
 .cmp-mycloth-nav__title {
     display: inline-block;
-   gap: calc(var(--spacing) * 7); 
 }
 
+/* ---------- Desktop dropdown ---------- */
 .cmp-mycloth-nav__dropdown {
     display: none;
     position: absolute;
@@ -67,13 +72,14 @@
     z-index: 1000;
 }
 
-/* Show dropdown on hover or keyboard focus */
-.cmp-mycloth-nav__item:hover > .cmp-mycloth-nav__dropdown,
-.cmp-mycloth-nav__item:focus-within > .cmp-mycloth-nav__dropdown {
-    display: block;
+/* Hover only on devices with a real pointer, at desktop width */
+@media (hover: hover) and (min-width: 768px) {
+    .cmp-mycloth-nav__item:hover > .cmp-mycloth-nav__dropdown,
+    .cmp-mycloth-nav__item:focus-within > .cmp-mycloth-nav__dropdown {
+        display: block;
+    }
 }
 
-/* Dropdown links */
 .cmp-mycloth-nav__dropdown-link {
     display: block;
     padding: 10px 16px;
@@ -87,25 +93,129 @@
     background-color: #f2f2f2;
 }
 
-/* 4. Navigation Link (Removes underlines and sets custom color) */
-.cmp-mycloth-nav__link {
-    color: #333333 !important;         /* Explicit color with !important to override defaults */
-    text-decoration: none !important;  /* Removes underlines */
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s ease;
-    display: inline-flex;
-    align-items: center;
+/* Hamburger and arrow are hidden on desktop */
+.mycloth-menu__toggle,
+.cmp-mycloth-nav__arrow {
+    display: none;
 }
 
+/* ==========================================================================
+   Mobile (below 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
 
-/* Hover state for links */
-.cmp-mycloth-nav__link:hover {
-    color: #2563eb !important;         /* Theme accent hover color */
-    text-decoration: none !important;
-}
+    .cmp-experiencefragment--xfheader .aem-Grid--12 > .container.responsivegrid:has(.mycloth-menu_nav) {
+        width: 83.3333%;
+    }
 
-/* 5. Title Span Styling */
-.cmp-mycloth-nav__title {
-    display: inline-block;
+    /* Nav bar: logo left, toggle right */
+    .mycloth-menu_nav {
+        justify-content: space-around;
+        height: 4rem;
+        padding: 0 1rem;
+    }
+
+    /* Hamburger button */
+    .mycloth-menu__toggle {
+        display: block;
+        margin-left: auto;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        color: #333333;
+    }
+
+    .mycloth-menu__toggle span {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .mycloth-menu__toggle span:nth-child(1) { top: 11px; }
+    .mycloth-menu__toggle span:nth-child(2) { top: 19px; }
+    .mycloth-menu__toggle span:nth-child(3) { top: 27px; }
+
+    /* Morph into X when open */
+    .mycloth-menu_nav.is-open .mycloth-menu__toggle span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .mycloth-menu_nav.is-open .mycloth-menu__toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .mycloth-menu_nav.is-open .mycloth-menu__toggle span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Panel: full width, hidden until open */
+    .mycloth-menulist {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 0;
+        margin: 0;
+        z-index: 1000;
+    }
+
+    .mycloth-menu_nav.is-open .mycloth-menulist {
+        display: flex;
+    }
+
+    .cmp-mycloth-nav__item {
+        display: block;
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cmp-mycloth-nav__row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .cmp-mycloth-nav__link {
+        flex: 1;
+        padding: 14px 16px;
+    }
+
+    .cmp-mycloth-nav__arrow {
+        display: block;
+        width: 48px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: #333333;
+    }
+
+    /* Child dropdowns become accordions */
+    .cmp-mycloth-nav__dropdown {
+        position: static;
+        min-width: 0;
+        box-shadow: none;
+        background: #f7f7f7;
+        padding: 0;
+    }
+
+    .cmp-mycloth-nav__item.is-expanded > .cmp-mycloth-nav__dropdown {
+        display: block;
+    }
+
+    .cmp-mycloth-nav__dropdown-link {
+        padding: 12px 28px;
+        white-space: normal;
+    }
 }
